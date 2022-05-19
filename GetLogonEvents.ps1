@@ -88,16 +88,10 @@ function Get-LogonEvents {
             $cleanedResults | 
             Sort-Object -Property Date -Descending | 
             Export-Excel -Path "$OutputPath\$Computer.xlsx" -WorksheetName "$Computer" -TableName DetailedUsage -AutoSize
-
-            $AdditionalStatsObj |
-            Export-Excel -Path "$OutputPath\$Computer.xlsx" -WorksheetName "$Computer Additional Stats" -TableName AdditionalStats -AutoSize
-
         } else {
             Write-Output ($cleanedResults | Sort-Object -Property Date -Descending)
             Write-Output $AdditionalStatsObj
         }
         # ------- REGION END: Output Excel ------- #
-        
     }
-    
 }
