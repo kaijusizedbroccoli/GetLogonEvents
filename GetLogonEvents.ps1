@@ -89,8 +89,7 @@ function Get-LogonEvents {
             Sort-Object -Property Date -Descending | 
             Export-Excel -Path "$OutputPath\$Computer.xlsx" -WorksheetName "$Computer" -TableName DetailedUsage -AutoSize
         } else {
-            Write-Output ($cleanedResults | Sort-Object -Property Date -Descending)
-            Write-Output $AdditionalStatsObj
+            return ($cleanedResults | Sort-Object -Property Date -Descending)
         }
         # ------- REGION END: Output Excel ------- #
     }
